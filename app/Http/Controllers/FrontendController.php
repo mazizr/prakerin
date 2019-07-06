@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
+use Auth;
 
 class FrontendController extends Controller
 {
@@ -26,6 +28,10 @@ class FrontendController extends Controller
         // , compact('artikel','kategori','tag')
         
        
+    }
+    public function blog()
+    {
+        return view('frontend.blog');
     }
     public function single_blog()
     {

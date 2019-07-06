@@ -1,3 +1,4 @@
+@include('layouts.flash')
 <!DOCTYPE html>
 <html lang="en">
 

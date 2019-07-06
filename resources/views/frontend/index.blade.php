@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="preload-content">
@@ -8,7 +9,7 @@
     <!-- Preloader End -->
 
     @section('content')
-        
+    {{--  {{ Auth::user()->name }}  --}}
     
 
     <!-- ********** Hero Area Start ********** -->

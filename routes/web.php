@@ -11,13 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('frontend/index');
-// });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
@@ -27,6 +23,7 @@ Route::group(['prefix'=>'/'],
 function () {
     route::get('/','FrontendController@index');
     route::get('about','FrontendController@about');
+    route::get('blog','FrontendController@blog');
     route::get('single-blog','FrontendController@single_blog');
     route::get('contact','FrontendController@contact');
     route::get('services','FrontendController@services');
