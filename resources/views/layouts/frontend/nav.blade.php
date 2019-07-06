@@ -15,23 +15,23 @@
                                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Horor</a>
+                                <a class="nav-link" href="{{ url('single-blog') }}">Horor</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Misteri</a>
+                                <a class="nav-link" href="{{url('single-blog')}}">Misteri</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pengetahuan</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.html">Sejarah</a>
-                                    <a class="dropdown-item" href="catagory.html">kosong</a>
+                                    <a class="dropdown-item" href="{{ url('single-blog') }}">Sejarah</a>
+                                    <a class="dropdown-item" href="{{ url('single-blog') }}">kosong</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gaya Hidup</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.html">travelling</a>
-                                    <a class="dropdown-item" href="catagory.html">ehe</a>
+                                    <a class="dropdown-item" href="{{ url('single-blog') }}">travelling</a>
+                                    <a class="dropdown-item" href="{{ url('single-blog') }}">ehe</a>
                                 </div>
                             </li>
                             <li class="nav-item">

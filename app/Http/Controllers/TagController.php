@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FrontendController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,24 +13,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
-        // , compact('artikel')
+        //
     }
 
-    public function about()
-    {
-        // $artikel = Artikel::orderBy('created_at','desc')->paginate(3);
-        // $kategori = Kategori::all();
-        // $tag = Tag::all();
-        return view('frontend.about');
-        // , compact('artikel','kategori','tag')
-        
-       
-    }
-    public function single_blog()
-    {
-        return view('frontend.single_blog');
-    }
     /**
      * Show the form for creating a new resource.
      *
