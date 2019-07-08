@@ -24,3 +24,25 @@ Route::get('hobi', 'NamaController@hobi');
 Route::get('cita', 'NamaController@cita');
 Route::resource('siswa', 'SiswaController');
 Route::resource('sekolah', 'SekolahController');
+
+Route::resource('categories', 'CategoryAPIController', [
+    'only' => ['index', 'show', 'store', 'update', 'destroy']
+]);
+
+Route::resource('articles', 'ArticleAPIController', [
+    'only' => ['index', 'show', 'store', 'update', 'destroy']
+]);
+
+Route::resource('users', 'UserAPIController', [
+    'only' => ['index', 'show', 'store', 'update', 'destroy']
+]);
+
+// Frontend
+Route::resource('front', 'FrontendAPIController');
+
+
+Route::get('contoh', 'ContohController@index');
+Route::get('contoh2', 'ContohController@index2');
+
+
+Route::resource('siswa', 'SiswaController');

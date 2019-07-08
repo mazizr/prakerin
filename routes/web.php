@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -33,3 +31,42 @@ function () {
     
 }
 );
+
+// Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']],
+// function () {
+//     route::get('/', function () {
+//         return view('welcome');
+//     });
+//     route::get('/json/kategori','KategoriController@getjson');
+//     route::get('/artikel','ArtikelController@index');
+//     route::get('/json/tag','TagController@getjson');
+//     route::get('about','FrontendController@about');
+//     route::get('blog','FrontendController@blog');
+//     route::get('single-blog','FrontendController@single_blog');
+//     route::get('contact','FrontendController@contact');
+//     route::get('services','FrontendController@services');
+//     // route::get('blog/{artikel}','FrontendController@singleblog');
+//     // route::get('blog-tag/{tag}','FrontendController@blogtag');
+//     // route::get('blog-kategori/{kategori}','FrontendController@blogkategori');
+    
+// }
+// );
+
+Route::group(['prefix'=>'admin','middleware'=>['auth']],
+function () {
+    Route::get('/', function () {
+        return view('backend.index');
+    });
+    route::resource('kategori','KategoriController');
+    route::resource('tag','TagController');
+    route::resource('artikel','ArtikelController');
+}
+);
+
+Route::get('category', function () {
+    return view('category');
+});
+
+Route::get('single', function () {
+    return view('single');
+});

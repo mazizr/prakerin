@@ -58,14 +58,14 @@
                                 </div>
                             </div>
                             <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
+                            {{--  <div class="single-slide d-flex align-items-center">
                                 <div class="post-number">
                                     <p>4</p>
                                 </div>
                                 <div class="post-title">
                                     <a href="single-blog.html">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
                                 </div>
-                            </div>
+                            </div>  --}}
                         </div>
                     </div>
                 </div>
