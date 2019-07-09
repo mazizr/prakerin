@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Kategori;
-use Session;
+use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
@@ -15,8 +14,13 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::orderBy('created_at','desc')->get();
-        return view('backend.kategori.index', compact('kategori'));
+        $kategori = Kategori::all();
+        $response = [
+            'success' => true,
+            'data' =>  $kategori,
+            'message' => 'Berhasil ditampilkan.'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -26,7 +30,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view ('backend.kategori.create');
+        //
     }
 
     /**
@@ -44,18 +48,19 @@ class KategoriController extends Controller
         $kategori->nama_kategori = $request->nama_kategori;
         $kategori->slug = str_slug($request->nama_kategori, '-');
         $kategori->save();
-        Session::flash("flash_notification",[
-            "level" => "success",
-            "message" => "Berhasil menyimpan<b>"
-                         . $kategori->nama_kategori."</b>"
-        ]);
-        return redirect()->route('kategori.index');
+        $response = [
+            'success' => true,
+            'data' =>  $kategori,
+            'message' => 'Berhasil ditambahkan.'
+        ];
+
+        return response()->json($response, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -66,55 +71,41 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $kategori = Kategori::findOrfail($id);
-        return view('backend.kategori.edit',compact('kategori'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_kategori' => 'required'
-        ]);
-        $kategori = Kategori::findOrfail($id);
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->slug = str_slug($request->nama_kategori, '-');
-        $kategori->save();
-        Session::flash("flash_notification",[
-            "level" => "success",
-            "message" => "Berhasil mengedit<b>"
-                         . $kategori->nama_kategori."</b>"
-        ]);
-        return redirect()->route('kategori.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $kategori = Kategori::findOrfail($id);
-        if(!Kategori::destroy($id)) return redirect()->back();
-        Session::flash("flash_notification",[
-            "level" => "Success",
-            "message" => "Berhasil menghapus<b>"
-                         . $kategori->nama_kategori."</b>"
-        ]);
-        return redirect()->route('kategori.index');
+        $kategori = Kategori::find($id)->delete($id);
 
+        $response = [
+            'success' => true,
+            'data' =>  $kategori,
+            'message' => 'Berhasil dihapus.'
+        ];
+        return response()->json($response, 200);
     }
 }

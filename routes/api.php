@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +14,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/*
+* Snippet for a quick route reference
+*/
+
+Route::get('/', function (Router $router) {
+    return collect($router->getRoutes()->getRoutesByMethod()["GET"])->map(function ($value, $key) {
+        return url($key);
+    })->values();
 });
 
-Route::get('nama', 'NamaController@nama');
-Route::get('buah', 'NamaController@buah');
-Route::get('game', 'NamaController@game');
-Route::get('hobi', 'NamaController@hobi');
-Route::get('cita', 'NamaController@cita');
-Route::resource('siswa', 'SiswaController');
-Route::resource('sekolah', 'SekolahController');
-
-Route::resource('categories', 'CategoryAPIController', [
-    'only' => ['index', 'show', 'store', 'update', 'destroy']
-]);
+// Route::resource('kategori', 'CategoryAPIController', [
+//     'only' => ['index', 'show', 'store', 'update', 'destroy']
+// ]);
 
 Route::resource('articles', 'ArticleAPIController', [
     'only' => ['index', 'show', 'store', 'update', 'destroy']
@@ -45,4 +44,4 @@ Route::get('contoh', 'ContohController@index');
 Route::get('contoh2', 'ContohController@index2');
 
 
-Route::resource('siswa', 'SiswaController');
+Route::resource('kategori', 'KategoriController');

@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::group(['prefix'=>'/'],
 function () {
     route::get('/','FrontendController@index');
@@ -57,14 +58,17 @@ function () {
     Route::get('/', function () {
         return view('backend.index');
     });
-    route::resource('kategori','KategoriController');
+    // route::resource('kategori','KategoriController');
+    route::get('kategori', function () {
+        return view('kategori');
+    });
     route::resource('tag','TagController');
     route::resource('artikel','ArtikelController');
 }
 );
 
-Route::get('category', function () {
-    return view('category');
+Route::get('kategori', function () {
+    return view('kategori');
 });
 
 Route::get('single', function () {
