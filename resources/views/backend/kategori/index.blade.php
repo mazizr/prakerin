@@ -26,13 +26,29 @@
                         <thead>
                             <tr>
                                 <th>Nama Kategori</th>
-                                {{-- <th>Slug</th>
-                                <th style="text-align: center;">Aksi</th> --}}
+                                <th>Slug</th>
+                                <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <td class="data-siswa"></td>
-                            
+                            @foreach ($kategori as $data)
+                            <tr>
+                                <td>{{$data->nama_kategori}}</td>
+                                <td>{{$data->slug}}</td>
+                               
+								<td style="text-align: center;">
+                                    <form action="{{route('kategori.destroy', $data->id)}}" method="post">
+                                        {{csrf_field()}}
+									<a href="{{route('kategori.edit', $data->id)}}"
+										class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
+									</a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="hidden" name="_method" value="DELETE">
+										<button type="submit" class="zmdi zmdi-delete btn-rounded btn-floating btn btn-dangerbtn btn-danger btn-outline"> Delete</button>
+									</form>
+								</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -43,15 +59,3 @@
     </div>
 </section>
 @endsection
-
-{{-- <td style="text-align: center;">
-    <form action="{{route('kategori.destroy', $data->id)}}" method="post">
-        {{csrf_field()}}
-    <a href="{{route('kategori.edit', $data->id)}}"
-        class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
-    </a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="zmdi zmdi-delete btn-rounded btn-floating btn btn-dangerbtn btn-danger btn-outline"> Delete</button>
-    </form>
-</td> --}}

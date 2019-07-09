@@ -58,10 +58,7 @@ function () {
     Route::get('/', function () {
         return view('backend.index');
     });
-    // route::resource('kategori','KategoriController');
-    route::get('kategori', function () {
-        return view('kategori');
-    });
+    route::resource('kategori','CategoriController');
     route::resource('tag','TagController');
     route::resource('artikel','ArtikelController');
 }
