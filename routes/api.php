@@ -44,4 +44,12 @@ Route::get('contoh', 'ContohController@index');
 Route::get('contoh2', 'ContohController@index2');
 
 
-Route::resource('kategori', 'KategoriController');
+
+
+Route::resource('artikel', 'ArtikelsController');
+
+Route::group(['middleware' => 'cors'], function(){
+    Route::resource('kategori', 'KategoriController');
+    Route::resource('tag', 'TagsController');
+    Route::resource('artikel', 'ArtikelsController');
+});

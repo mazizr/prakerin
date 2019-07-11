@@ -50,7 +50,7 @@
                                     <form action="{{route('artikel.destroy', $data->id)}}" method="post">
                                         {{csrf_field()}}
 									<a href="{{route('artikel.edit', $data->id)}}"
-										class="zmdi zmdi-edit btn btn-warning btn-rounded btn-floating btn-outline"> Edit
+										class="zmdi zmdi-delete btn-rounded btn-floating btn btn-warning btn btn-warning btn-outline"> Edit
                                     </a>
                                     {{-- <a href="{{route('artikel.show', $data->id)}}"
 										class="zmdi zmdi-eye btn btn-success btn-rounded btn-floating btn-outline"> Show

@@ -68,6 +68,14 @@ Route::get('kategori', function () {
     return view('kategori');
 });
 
+Route::get('tag', function () {
+    return view('tag');
+});
+
+Route::get('artikel', function () {
+    return view('artikel');
+});
+
 Route::get('single', function () {
     return view('single');
 });

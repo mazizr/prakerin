@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    @yield('js')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -88,6 +88,10 @@
     </div>
     <script src="{{ ('assets/frontend/js/jquery/jquery-2.2.4.min.js') }}"></script>
     <script src="{{ asset('js/siswa.js') }}"></script>
+    <script src="{{ asset('js/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'kontennya' );
+    </script>
     @stack('script')
 </body>
 </html>
