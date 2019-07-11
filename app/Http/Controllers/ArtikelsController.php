@@ -14,13 +14,16 @@ class ArtikelsController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::all();
+        $artikel = Artikel::with('kategori','user')->get();
         $response = [
             'success' => true,
             'data' =>  $artikel,
             'message' => 'Berhasil ditampilkan.'
         ];
         return response()->json($response, 200);
+        // $getTag = $request->kategori;
+        // $kategori = Kategori::find([$getTag]);
+        // $artikel
     }
 
     /**
@@ -30,7 +33,10 @@ class ArtikelsController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::all();
+        $tag = Tag::all();
+        // dd($tag);
+        return view('artikel', compact('kategori','tag'));
     }
 
     /**

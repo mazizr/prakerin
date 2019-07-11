@@ -161,7 +161,7 @@ $.ajax({
                             <td>${value.judul}</td>
                             <td>${value.slug}</td>
                             <td>${value.kategori.nama_kategori}</td>
-                            <td>${value.id_user}</td>
+                            <td>${value.user.name}</td>
                             <td><img src="../assets/img/artikel/${value.foto}"
                             style="width:250px; height:250px;" alt="Foto"></td>
                             <td><button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
@@ -172,22 +172,6 @@ $.ajax({
     }
 })
 
-$.ajax({
-    url: alamat_kategori,
-    method: "GET",
-    dataType: "json",
-    
-    success: function (berhasil) {
-        // console.log(berhasil)
-        $.each(berhasil.data, function (key, value) {
-            $(".td-kategori").append(
-                `
-                ${value.id_kategori}${value.nama_kategori}          
-                `
-            )
-        }) 
-    }
-})
 
 // Simpan Data
 $(".tombol-simpan-tag").click(function (simpan) {
@@ -231,6 +215,25 @@ $(".table-tag").on('click', '.hapus-data-tag', function () {
         }
     })
 })
+
+$.ajax({
+    url: alamat_tag,
+    method: "GET",
+    dataType: "json",
+    
+    success: function (berhasil) {
+        // console.log(berhasil)
+        $.each(berhasil.data, function (key, value) {
+            $(".isi-tag").append(
+                `
+                <option value="${value.id}">
+                                                    ${value.nama_tag}
+                                                </option>        
+                `
+            )
+        }) 
+    }
+}) 
 })
 
 

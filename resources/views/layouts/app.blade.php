@@ -97,15 +97,4 @@
 </html>
 
 
-{{-- <a class="navbar-brand" href="{{ url('/admin') }}">
-    {{ config('app.name', 'Laravel') }}
-</a>
-<a class="navbar-brand" href="{{ url('/admin/kategori') }}">
-    Kategori
-</a>
-<a class="navbar-brand" href="{{ url('/admin/tag') }}">
-    Tag
-</a>
-<a class="navbar-brand" href="{{ url('/admin/artikel') }}">
-   Artikel
-</a> --}}
+

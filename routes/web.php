@@ -73,6 +73,7 @@ Route::get('tag', function () {
 });
 
 Route::get('artikel', function () {
+    
     return view('artikel');
 });
 

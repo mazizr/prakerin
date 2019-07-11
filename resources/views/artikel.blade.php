@@ -1,12 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.backend')
+@section('css')
+    <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/select2/select2.min.css')}}">
+@endsection
 
-{{-- @section('js')
-<script src="{{ ('assets/backend/assets/vendor/ckeditor/ckeditor.js')}}"></script>
-<script>
-    CKEDITOR.replace( 'kontennya' );
-</script>
-@endsection --}}
-
+@section('js')
+    <script src="{{asset('assets/backend/assets/vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('assets/backend/assets/js/components/select2-init.js')}}"></script>
+    <script src="{{asset('assets/backend/assets/js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    
+@endsection
+<script src="{{asset('assets/backend/assets/js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @section('content')
 <section class="page-content container-fluid">
     <div class="row">
@@ -21,14 +26,28 @@
         
     </div>
     <div class="container">
+            <div class="form-group">
             <label>Judul</label>
-            <input class="form-control" type="text" name="judul" id=""required>
-            <input class="form-control" type="file" name="foto" id="" required>
-            <select class="form-control" name="isi_tag[]" id="s2_demo3" multiple="multiple" required>
-            </select>
-            <select class="form-control" name="id_kategori" id="" required>
-            </select>
-            <textarea class="form-control" name="konten" id="kontennya" required></textarea>
+            <input class="form-control" type="text" name="judul" id=""required></div>
+            <div class="form-group">
+            <label for="">Foto</label>
+                                        <input class="form-control" type="file" 
+                                        name="foto" id="" required></div>
+                                        <div class="form-group">
+            <label for="">Tag</label>
+                                        <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
+                                        </select></div>
+                                        <div class="form-group">
+                                        <label for="">Konten</label>
+                                        <textarea class="form-control"
+                                            name="konten" id="editor1" required>
+                                            </textarea>
+                                        </textarea></div>
+                                        <script>
+                                        CKEDITOR.replace("editor1", {
+
+                                        });
+                                        </script>
             <button type="submit" class="btn btn-outline-info tombol-simpan">
                     Simpan Data
                 </button>
