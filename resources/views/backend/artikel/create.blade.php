@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.app')
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/backend/assets/vendor/select2/select2.min.css')}}">
 @endsection
@@ -81,7 +81,7 @@
                                             <label for="">Konten</label>
                                             <textarea class="form-control 
                                             @error('konten') is-invalid @enderror"
-                                            name="konten" id="editor1" required>
+                                            name="konten"  required>
                                             </textarea>
                                             @error('konten')
                                             <span class="invalid-feedback" role="alert">

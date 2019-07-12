@@ -67,6 +67,7 @@
                                 <th>Judul</th>
                                 <th>Slug</th>
                                 <th>Kategori</th>
+                                <th>Tag</th>
                                 <th>Penulis</th>
                                 <th>Foto</th>
                                 <th style="text-align: center;">Aksi</th>

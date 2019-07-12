@@ -153,7 +153,6 @@ $.ajax({
         // console.log(berhasil)
        
         idnya = document.getElementById('id_kategori');
-        
         $.each(berhasil.data, function (key, value) {
             $(".table-artikel").append(
                 `
@@ -161,6 +160,7 @@ $.ajax({
                             <td>${value.judul}</td>
                             <td>${value.slug}</td>
                             <td>${value.kategori.nama_kategori}</td>
+                            <td>${value.tag[0].nama_tag}</td>
                             <td>${value.user.name}</td>
                             <td><img src="../assets/img/artikel/${value.foto}"
                             style="width:250px; height:250px;" alt="Foto"></td>
@@ -263,10 +263,6 @@ $.ajax({
     }
 }) 
 })
-
-
-
-
 var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

@@ -14,7 +14,7 @@ class ArtikelsController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::with('kategori','user')->get();
+        $artikel = Artikel::with('kategori', 'tag', 'user')->get();
         $response = [
             'success' => true,
             'data' =>  $artikel,

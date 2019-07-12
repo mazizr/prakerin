@@ -91,6 +91,6 @@ Route::get('single', function () {
     return view('single');
 });
 
-// route::resource('kategori','CategoriController');
-//     route::resource('tag','TagController');
-//     route::resource('artikel','ArtikelController');
+route::resource('/a/kategori','CategoriController');
+    route::resource('/a/tag','TagController');
+    route::resource('/a/artikel','ArtikelController');
