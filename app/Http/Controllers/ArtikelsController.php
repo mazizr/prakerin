@@ -33,10 +33,7 @@ class ArtikelsController extends Controller
      */
     public function create()
     {
-        $kategori = Kategori::all();
-        $tag = Tag::all();
-        // dd($tag);
-        return view('artikel', compact('kategori','tag'));
+       
     }
 
     /**

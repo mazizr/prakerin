@@ -53,14 +53,24 @@ function () {
 // }
 // );
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']],
+Route::group(['prefix'=>'/','middleware'=>['auth']],
 function () {
     Route::get('/', function () {
         return view('backend.index');
     });
-    route::resource('kategori','CategoriController');
-    route::resource('tag','TagController');
-    route::resource('artikel','ArtikelController');
+    
+    Route::get('kategori', function () {
+        return view('kategori');
+    });
+    
+    Route::get('tag', function () {
+        return view('tag');
+    });
+    
+    Route::get('artikel', function () {
+        
+        return view('artikel');
+    });
 }
 );
 
@@ -80,3 +90,7 @@ Route::get('artikel', function () {
 Route::get('single', function () {
     return view('single');
 });
+
+// route::resource('kategori','CategoriController');
+//     route::resource('tag','TagController');
+//     route::resource('artikel','ArtikelController');

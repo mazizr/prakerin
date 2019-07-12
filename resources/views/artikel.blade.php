@@ -27,28 +27,33 @@
     </div>
     <div class="container">
             <div class="form-group">
-            <label>Judul</label>
-            <input class="form-control" type="text" name="judul" id=""required></div>
+                <label>Judul</label>
+                <input class="form-control" type="text" name="judul" id=""required>
+            </div>
             <div class="form-group">
-            <label for="">Foto</label>
-                                        <input class="form-control" type="file" 
-                                        name="foto" id="" required></div>
-                                        <div class="form-group">
-            <label for="">Tag</label>
-                                        <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
-                                        </select></div>
-                                        <div class="form-group">
-                                        <label for="">Konten</label>
-                                        <textarea class="form-control"
-                                            name="konten" id="editor1" required>
-                                            </textarea>
-                                        </textarea></div>
-                                        <script>
-                                        CKEDITOR.replace("editor1", {
-
-                                        });
-                                        </script>
-            <button type="submit" class="btn btn-outline-info tombol-simpan">
+                <label for="">Foto</label>
+                <input class="form-control" type="file" name="foto" id="" required>
+            </div>
+            <div class="form-group">
+                <label for="">Kategori</label>
+                <select class="form-control isi-kategori" name="id_kategori" id="" required>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Tag</label>
+                <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Konten</label>
+                <textarea class="form-control" name="konten" id="editor1" required></textarea>
+            </div>
+            <script>
+                CKEDITOR.replace("editor1", {
+                });
+            </script>
+            <button type="submit" class="btn btn-outline-info tombol-simpan-artikel">
                     Simpan Data
                 </button>
     </div>
