@@ -78,7 +78,11 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if($request()->ajax())
+        {
+            $data  = Tag::findOrFail($id);
+            return respone()->json(['data' => $data]);
+        }
     }
 
     /**

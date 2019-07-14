@@ -51,6 +51,5 @@ Route::resource('artikel', 'ArtikelsController');
 Route::group(['middleware' => 'cors'], function(){
     Route::resource('kategori', 'KategoriController');
     Route::resource('tag', 'TagsController');
-   
     Route::resource('artikel', 'ArtikelsController');
 });

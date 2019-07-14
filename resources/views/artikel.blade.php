@@ -6,13 +6,14 @@
 @section('js')
     <script src="{{asset('assets/backend/assets/vendor/select2/select2.min.js')}}"></script>
     <script src="{{asset('assets/backend/assets/js/components/select2-init.js')}}"></script>
-    <script src="{{asset('assets/backend/assets/js/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+   
+   
     
 @endsection
+
+@section('content')
 <script src="{{asset('assets/backend/assets/js/ckeditor/ckeditor.js')}}"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-@section('content')
 <section class="page-content container-fluid">
     <div class="row">
         <div class="col-12">
@@ -20,47 +21,52 @@
                 <h5 class="card-header">Data Tables Kategori</h5><br>
                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
 <div id="id01" class="modal">
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        
+  
+    <form class="modal-content animate"method="post" id="createData" enctype="multipart/form-data">
+        @csrf
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              
+          </div>
+        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+    <div class="modal-body">
+        <div class="form-group">
+            <label>Judul</label>
+            <input type="text" name="judul" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label><left>Deskripsi</left></label>
+            <textarea name="konten" id="editor1" class="form-control" required> </textarea>
+        </div>
+        <script>
+            CKEDITOR.replace("editor1", {
+                extraPlugins: 'easyimage',
+                cloudServices_tokenUrl: 'https://example.com/cs-token-endpoint',
+    cloudServices_uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
+            });
+        </script>
+        <div class="form-group">
+            <label>Foto</label>
+            <input type="file" name="foto" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Kategori</label>
+            <select class="form-control isi-kategori" name="id_kategori" id="" required>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Tag</label>
+            <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
+            </select>
+        </div>
+
     </div>
-    <div class="container">
-            <div class="form-group">
-                <label>Judul</label>
-                <input class="form-control" type="text" name="judul" id=""required>
-            </div>
-            <div class="form-group">
-                <label for="">Foto</label>
-                <input class="form-control" type="file" name="foto" id="" required>
-            </div>
-            <div class="form-group">
-                <label for="">Kategori</label>
-                <select class="form-control isi-kategori" name="id_kategori" id="" required>
-                    
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="">Tag</label>
-                <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="">Konten</label>
-                <textarea class="form-control" name="konten" id="editor1" required></textarea>
-            </div>
-            <script>
-                CKEDITOR.replace("editor1", {
-                });
-            </script>
-            <button type="submit" class="btn btn-outline-info tombol-simpan-artikel">
-                    Simpan Data
-                </button>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save changes</button>
     </div>
-    
-  </form>
+</form> 
 </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
@@ -86,3 +92,40 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+        // Store Data
+        $('#createData').submit(function(e){
+        var formData = new FormData($('#createData')[0]);
+        e.preventDefault();
+        $.ajax({
+            url: '/api/artikel',
+            type:'POST',
+            data:formData,
+            cache: true,
+            contentType: false,
+            processData: false,
+            async:false,
+            dataType: 'json',
+            success:function(formData){
+                $('#exampleModal').modal('hide');
+                $('#datatable').DataTable().ajax.reload();
+                alert(formData.message)
+            },
+            complete: function() {
+                $("#indexKategori").show();
+                $("#createData")[0].reset();
+            }
+        });
+    });
+});
+</script>
+@endpush

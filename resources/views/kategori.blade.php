@@ -6,6 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header">Data Tables Kategori</h5><br>
+                {{-- // MODAL TAMBAH DATA --}}
                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
 <div id="id01" class="modal">
   <form class="modal-content animate" action="/action_page.php">
@@ -26,6 +27,7 @@
     </div>
   </form>
 </div>
+{{-- END MODAL TAMBAH DATA --}}
                 <div class="card-body">
                     <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -41,17 +43,6 @@
                     </table>
 
                     <br>
-                   
-                            {{-- <div class="form-group">
-                                <label>Nama Kategori</label>
-                                <input class="form-control" type="text" name="nama_kategori" id="">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-outline-info tombol-simpan">
-                                    Simpan Data
-                                </button>
-                            </div> --}}
-                       
                 </div>
             </div>
         </div>

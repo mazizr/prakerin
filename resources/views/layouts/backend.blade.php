@@ -206,7 +206,7 @@
 													<!-- END CONTENT WRAPPER -->
 														<!-- ================== GLOBAL VENDOR SCRIPTS ==================-->
 														<script src="{{asset('assets/backend/assets/vendor/modernizr/modernizr.custom.js')}}"></script>
-														<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+														<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>		
 														<script src="{{asset('assets/backend/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 														<script src="{{asset('assets/backend/assets/vendor/js-storage/js.storage.js')}}"></script>
 														<script src="{{asset('assets/backend/assets/vendor/js-cookie/src/js.cookie.js')}}"></script>
@@ -250,11 +250,13 @@
 													ga('send', 'pageview');
 													</script>
 													
+													<script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>												
+    												<script src="{{ asset('js/global.js') }}"></script>
+    												{{-- <script src="{{ asset('js/siswa.js') }}"></script> --}}
+    												<script src="{{ asset('assets/backend/DataTables/js/jquery.dataTables.min.js')}}"></script>
+    												<script src="{{ asset('assets/backend/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
 													<script src="{{ asset('js/siswa.js') }}"></script>
-													<script src="{{ asset('js/ckeditor.js') }}"></script>
-													<script>
-														CKEDITOR.replace( 'kontennya' );
-													</script>
+													
 													@stack('script')
 													@yield('js')
 													</body>

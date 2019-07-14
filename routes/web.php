@@ -60,7 +60,7 @@ function () {
     });
     
     Route::get('kategori', function () {
-        return view('kategori');
+        return view('admin.kategori.index');
     });
     
     Route::get('tag', function () {
@@ -71,6 +71,12 @@ function () {
         
         return view('artikel');
     });
+
+    Route::get('produk', function () {
+        
+        return view('admin.artikel.index');
+    });
+    Route::post('artikel', 'ArtikelsController@store');
 }
 );
 
@@ -94,3 +100,6 @@ Route::get('single', function () {
 route::resource('/a/kategori','CategoriController');
     route::resource('/a/tag','TagController');
     route::resource('/a/artikel','ArtikelController');
+
+
+ 

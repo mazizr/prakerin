@@ -3,7 +3,7 @@ $(function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
     var alamat_kategori = 'api/kategori'
     var alamat_tag = 'api/tag'
     var alamat_artikel = 'api/artikel'
@@ -24,7 +24,8 @@ $(function () {
                     <tr>
                                 <td>${value.nama_kategori}</td>
                                 <td>${value.slug}</td>
-                                <td><button class="btn btn-danger btn-sm hapus-data" data-id="${value.id}">Hapus</button></td>
+                                <td><button class="btn btn-warning btn-sm edit-data" data-id="${value.id}">Edit</button>
+                                <button class="btn btn-danger btn-sm hapus-data" data-id="${value.id}">Hapus</button></td>
                             </tr>
                     `
                 )
@@ -75,8 +76,10 @@ $(function () {
         })
     })
 
+// ------------------------------------------------------------
 
-// tag
+// TAG
+
 $.ajax({
     url: alamat_tag,
     method: "GET",
@@ -91,13 +94,42 @@ $.ajax({
                 <tr>
                             <td>${value.nama_tag}</td>
                             <td>${value.slug}</td>
-                            <td><button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
+                            <td>
+                            <button class="btn btn-warning btn-sm edit" onclick="document.getElementById('id02').style.display='block'" 
+                            id="tagEdit" data-id="${value.id}'"
+                            data-nama="${value.nama_tag}"
+                            >Edit</button>
+                            <button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
                         </tr>
                 `
             )
         })
     }
 })
+
+// EDIT FORM
+// $("#id02").on('click', '.edit-data-tag', function (event) {
+//     var button = $(event.relatedTarget)
+//     var id = button.data('id')
+//     var nama_tag = button.data('nama_tag')
+// $.ajax({
+//     url: alamat_tag + "/" + id,
+    
+//     method: "GET", 
+//     dataType: "json",
+    
+//     success: function (berhasil) {
+//         // console.log(berhasil)
+        
+//             $("#nama-tag").append(
+//         $('input[name="nama_tag"]').val(nama_tag)
+//             )
+        
+//     }
+// }) 
+// }) 
+
+
 
 // Simpan Data
 $(".tombol-simpan-tag").click(function (simpan) {
@@ -142,6 +174,10 @@ $(".table-tag").on('click', '.hapus-data-tag', function () {
     })
 })
 
+
+
+// -----------------------------------------------------------------------------
+
 // ARTIKEL
 
 $.ajax({
@@ -154,6 +190,7 @@ $.ajax({
        
         idnya = document.getElementById('id_kategori');
         $.each(berhasil.data, function (key, value) {
+            
             $(".table-artikel").append(
                 `
                 <tr>
@@ -164,38 +201,34 @@ $.ajax({
                             <td>${value.user.name}</td>
                             <td><img src="../assets/img/artikel/${value.foto}"
                             style="width:250px; height:250px;" alt="Foto"></td>
-                            <td><button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
+                            <td>
+                            <button class="btn btn-danger btn-sm hapus-data-artikel" data-id="${value.id}">Hapus</button></td>
                         </tr>
                 `               
             )
+            
         }) 
     }
 })
 
 
-// Simpan Data
+
+// SIMPAN DATA
 $(".tombol-simpan-artikel").click(function (simpan) {
+    var formData    = new FormData($('#createData')[0]);
     simpan.preventDefault();
-    var variable_isian_judul = $("input[name=judul]").val()
-    var variable_isian_foto = $("input[name=foto]").val()
-    var variable_isian_kategori = $("select[name=id_kategori]").val()
-    var variable_isian_tag =$("select[name=tag]").val()
-    var variable_isian_konten =$("textarea[name=konten]").val()
     // console.log(nama)
     $.ajax({
         url: alamat_artikel,
-        method: "POST",
-        dataType: "json",
-        data: {
-            judul: variable_isian_judul,
-            foto : variable_isian_foto,
-            id_kategori : variable_isian_kategori,
-            tag : variable_isian_tag,
-            konten : variable_isian_konten
-        },
-        
-        success: function (data) {
-            alert(data.message)
+        type:'POST',
+            data:formData,
+            cache: true,
+            contentType: false,
+            processData: false,
+            async:false,
+            dataType: 'json',
+        success: function (berhasil) {
+            alert(berhasil.message)
             location.reload();
         },
         error: function (gagal) {
@@ -205,11 +238,11 @@ $(".tombol-simpan-artikel").click(function (simpan) {
 })
 
 // Hapus Data
-$(".table-tag").on('click', '.hapus-data-tag', function () {
+$(".table-artikel").on('click', '.hapus-data-artikel', function () {
     var id = $(this).data("id");
     // alert(id)
     $.ajax({
-        url: alamat_tag + "/" + id,
+        url: alamat_artikel + "/" + id,
         method: "DELETE",
         dataType: "json",
         data: {
@@ -225,6 +258,7 @@ $(".table-tag").on('click', '.hapus-data-tag', function () {
     })
 })
 
+// isi dari select Tag 
 $.ajax({
     url: alamat_tag,
     method: "GET",
@@ -244,6 +278,7 @@ $.ajax({
     }
 }) 
 
+// isi dari select Kategori 
 $.ajax({
     url: alamat_kategori,
     method: "GET",
@@ -263,7 +298,19 @@ $.ajax({
     }
 }) 
 })
+
+// ----------------------------------------------------------------
+
+// javascript dari modal 
 var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+var modal = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {

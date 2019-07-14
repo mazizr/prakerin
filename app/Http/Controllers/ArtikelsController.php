@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Artikel;
 use Illuminate\Http\Request;
+use App\Kategori;
+use App\Tag;
+use App\Artikel;
+use Session;
+use Auth;
+use File;
 
 class ArtikelsController extends Controller
 {
@@ -21,9 +26,6 @@ class ArtikelsController extends Controller
             'message' => 'Berhasil ditampilkan.'
         ];
         return response()->json($response, 200);
-        // $getTag = $request->kategori;
-        // $kategori = Kategori::find([$getTag]);
-        // $artikel
     }
 
     /**
@@ -75,7 +77,9 @@ class ArtikelsController extends Controller
             'data' =>  $artikel,
             'message' => 'Berhasil ditampilkan.'
         ];
-        return response()->json($response, 200);
+        
+        return view('artikel');
+        
     }
 
     /**

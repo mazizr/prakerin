@@ -9,16 +9,17 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    @yield('js')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/frontend/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/DataTables/css/dataTables.bootstrap4.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/backend/select2/dist/css/select2.min.css') }}">
+    @yield('css')
+    @stack('styles')
 </head>
 <body>
     <div id="app">
@@ -27,15 +28,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <a class="navbar-brand" href="{{ url('/admin/kategori') }}">
-                    Kategori
-                </a>
-                <a class="navbar-brand" href="{{ url('/admin/tag') }}">
-                    Tag
-                </a>
-                <a class="navbar-brand" href="{{ url('/admin/artikel') }}">
-                    Artikel
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,7 +35,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @guest
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('kategori') }}">Kategori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('artikel') }}">Artikel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('tag') }}">Tag</a>
+                        </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -66,8 +69,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -86,15 +89,18 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ ('assets/frontend/js/jquery/jquery-2.2.4.min.js') }}"></script>
-    <script src="{{ asset('js/siswa.js') }}"></script>
-    <script src="{{ asset('js/ckeditor.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/global.js') }}"></script>
+    {{-- <script src="{{ asset('js/siswa.js') }}"></script> --}}
+    <script src="{{ asset('assets/backend/DataTables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/backend/select2/dist/js/select2.min.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'kontennya' );
+        CKEDITOR.replace('texteditor');
     </script>
-    @stack('script')
+    @yield('js')
+    @stack('scripts')
 </body>
 </html>
-
-
-
