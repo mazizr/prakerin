@@ -67,7 +67,13 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::findOrfail($id);
+        $response = [
+            'success' => true,
+            'data' =>  $tag,
+            'message' => 'Berhasil ditampilkan.'
+        ];
+        return response()->json($response, 200);
     }
 
     /**
@@ -92,9 +98,21 @@ class TagsController extends Controller
      * @param  \App\Kategori  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'nama_tag' => 'required'
+        ]);
+        $tag = Tag::findOrfail(id);
+        $tag->nama_tag = $request->nama_tag;
+        $tag->slug = str_slug($request->nama_tag, '-');
+        $tag->save();
+        $response = [
+            'success' => true,
+            'data' =>  $tag,
+            'message' => 'Berhasil ditampilkan.'
+        ];
+        return response()->json($response, 200);
     }
 
     /**

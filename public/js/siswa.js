@@ -89,14 +89,14 @@ $.ajax({
         $.each(berhasil.data, function (key, value) {
             
             
-            $(".table-tag").append(
+            $("#table-tag").append(
                 `
                 <tr>
                             <td>${value.nama_tag}</td>
                             <td>${value.slug}</td>
                             <td>
                             <button class="btn btn-warning btn-sm edit" onclick="document.getElementById('id02').style.display='block'" 
-                            id="tagEdit" data-id="${value.id}'"
+                            id="edit" data-id="${value.id}"
                             data-nama="${value.nama_tag}"
                             >Edit</button>
                             <button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
@@ -108,28 +108,33 @@ $.ajax({
 })
 
 // EDIT FORM
-// $("#id02").on('click', '.edit-data-tag', function (event) {
-//     var button = $(event.relatedTarget)
-//     var id = button.data('id')
-//     var nama_tag = button.data('nama_tag')
-// $.ajax({
-//     url: alamat_tag + "/" + id,
-    
-//     method: "GET", 
-//     dataType: "json",
-    
-//     success: function (berhasil) {
-//         // console.log(berhasil)
-        
-//             $("#nama-tag").append(
-//         $('input[name="nama_tag"]').val(nama_tag)
-//             )
-        
-//     }
-// }) 
-// }) 
+$(document).on('click', '#edit', function () {
+    var id = $(this).data("id");
+    var nama_tag = $(this).data("nama");
+                $("#id").val(id),
+                $("#nama_tag").val(nama_tag)
+ });  
 
-
+ // EDIT DATA
+ $('#tombol-edit-tag').submit(function(e){
+    var formData    = new FormData($('#edit')[0]);
+    var id = formData.get('id');
+    e.preventDefault();
+    $.ajax({
+        url: "/api/tag/"+id,
+        type:'POST',
+        data:formData,
+        cache: true,
+        contentType: false,
+        processData: false,
+        async:false,
+        dataType: 'json',
+        success:function(result){
+            alert(result.message)
+            location.reload();
+        },
+    })
+})
 
 // Simpan Data
 $(".tombol-simpan-tag").click(function (simpan) {
@@ -154,7 +159,7 @@ $(".tombol-simpan-tag").click(function (simpan) {
 })
 
 // Hapus Data
-$(".table-tag").on('click', '.hapus-data-tag', function () {
+$("#table-tag").on('click', '.hapus-data-tag', function () {
     var id = $(this).data("id");
     // alert(id)
     $.ajax({

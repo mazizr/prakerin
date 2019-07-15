@@ -90,16 +90,12 @@
         </main>
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>												
     <script src="{{ asset('js/global.js') }}"></script>
     {{-- <script src="{{ asset('js/siswa.js') }}"></script> --}}
     <script src="{{ asset('assets/backend/DataTables/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ asset('assets/backend/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{ asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('assets/backend/select2/dist/js/select2.min.js') }}"></script>
-    <script>
-        CKEDITOR.replace('texteditor');
-    </script>
+	<script src="{{ asset('js/siswa.js') }}"></script>
     @yield('js')
     @stack('scripts')
 </body>

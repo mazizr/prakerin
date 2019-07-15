@@ -67,6 +67,8 @@ function () {
         return view('tag');
     });
     
+    Route::patch('tag', 'TagsController@update');
+
     Route::get('artikel', function () {
         
         return view('artikel');
@@ -84,10 +86,6 @@ Route::get('kategori', function () {
     return view('kategori');
 });
 
-Route::get('tag', function () {
-    return view('tag');
-});
-
 Route::get('artikel', function () {
     
     return view('artikel');
@@ -100,6 +98,13 @@ Route::get('single', function () {
 route::resource('/a/kategori','CategoriController');
     route::resource('/a/tag','TagController');
     route::resource('/a/artikel','ArtikelController');
+
+    
+//     Route::resource('tag', 'CobaAjaxController');
+
+// Route::post('tag/update', 'CobaAjaxController@update')->name('tag.update');
+
+// Route::get('tag/destroy/{id}', 'CobaAjaxController@destroy');
 
 
  

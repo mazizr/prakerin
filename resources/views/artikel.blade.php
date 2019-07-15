@@ -19,6 +19,8 @@
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header">Data Tables Kategori</h5><br>
+
+                {{-- MODALNYA --}}
                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
 <div id="id01" class="modal">
   
