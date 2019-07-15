@@ -6,68 +6,71 @@
 @section('js')
     <script src="{{asset('assets/backend/assets/vendor/select2/select2.min.js')}}"></script>
     <script src="{{asset('assets/backend/assets/js/components/select2-init.js')}}"></script>
-   
-   
-    
+   {{-- CKEditor --}}
+   <script src="{{ asset('assets/backend/assets/vendor/ckeditor/ckeditor.js')}}"></script>
+   <script>
+       CKEDITOR.replace( 'editor1' );
+   </script>
 @endsection
 
 @section('content')
-<script src="{{asset('assets/backend/assets/js/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <section class="page-content container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header">Data Tables Kategori</h5><br>
 
-                {{-- MODALNYA --}}
-                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
-<div id="id01" class="modal">
-  
-    <form class="modal-content animate"method="post" id="createData" enctype="multipart/form-data">
-        @csrf
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-              
-          </div>
-        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-    <div class="modal-body">
-        <div class="form-group">
-            <label>Judul</label>
-            <input type="text" name="judul" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label><left>Deskripsi</left></label>
-            <textarea name="konten" id="editor1" class="form-control" required> </textarea>
-        </div>
-        <script>
-            CKEDITOR.replace("editor1", {
-                extraPlugins: 'easyimage',
-                cloudServices_tokenUrl: 'https://example.com/cs-token-endpoint',
-    cloudServices_uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
-            });
-        </script>
-        <div class="form-group">
-            <label>Foto</label>
-            <input type="file" name="foto" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label>Kategori</label>
-            <select class="form-control isi-kategori" name="id_kategori" id="" required>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Tag</label>
-            <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
-            </select>
-        </div>
+                {{-- MODALNYA TAMBAH --}}
+                
+                    
+                        {{-- BUTTON TAMBAH --}}
+                        
+                            <button class="la la-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
+                        
+                    
+                
+                <div id="id01" class="modal">
+                        <form class="modal-content animate"method="post" id="createData" enctype="multipart/form-data">
+                            @csrf
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> 
+                            </div>
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Judul</label>
+                                    <input type="text" name="judul" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label><left>Deskripsi</left></label>
+                                    <textarea name="konten" id="editor1" class="form-control" required> </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                            <label class="custom-file-label">Foto</label>
+                                            <input type="file" name="foto" class="custom-file-input form-control-file" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kategori</label>
+                                    <select class="form-control isi-kategori" name="id_kategori" id="" required>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tag</label>
+                                    <select class="form-control isi-tag" name="tag[]" id="s2_demo3" multiple="multiple" required>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                    {{-- BUTTON SAVE --}}
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form> 
+                        </div>
+{{-- END MODALNYA TAMBAH --}}
 
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Save changes</button>
-    </div>
-</form> 
-</div>
+{{-- BAGIAN TABLE GET --}}
                 <div class="card-body table-responsive">
                     <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -88,6 +91,7 @@
 
                     <br>           
                 </div>
+{{-- END BAGIAN TABLE GET --}}
             </div>
         </div>
     </div>

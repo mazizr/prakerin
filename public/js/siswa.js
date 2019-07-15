@@ -24,14 +24,16 @@ $(function () {
                     <tr>
                                 <td>${value.nama_kategori}</td>
                                 <td>${value.slug}</td>
-                                <td><button class="btn btn-warning btn-sm edit-data" data-id="${value.id}">Edit</button>
+                                <td>
                                 <button class="btn btn-danger btn-sm hapus-data" data-id="${value.id}">Hapus</button></td>
-                            </tr>
+                    </tr>
                     `
                 )
             })
         }
     })
+
+    // <button class="btn btn-warning btn-sm edit-data" data-id="${value.id}">Edit</button>
 
     // Simpan Data
     $(".tombol-simpan").click(function (simpan) {
@@ -95,17 +97,19 @@ $.ajax({
                             <td>${value.nama_tag}</td>
                             <td>${value.slug}</td>
                             <td>
-                            <button class="btn btn-warning btn-sm edit" onclick="document.getElementById('id02').style.display='block'" 
-                            id="edit" data-id="${value.id}"
-                            data-nama="${value.nama_tag}"
-                            >Edit</button>
+                            
                             <button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
-                        </tr>
+                </tr>
                 `
             )
         })
     }
 })
+
+{/* <button class="btn btn-warning btn-sm edit" onclick="document.getElementById('id02').style.display='block'" 
+                            id="edit" data-id="${value.id}"
+                            data-nama="${value.nama_tag}"
+                            >Edit</button> */}
 
 // EDIT FORM
 $(document).on('click', '#edit', function () {
@@ -208,39 +212,78 @@ $.ajax({
                             style="width:250px; height:250px;" alt="Foto"></td>
                             <td>
                             <button class="btn btn-danger btn-sm hapus-data-artikel" data-id="${value.id}">Hapus</button></td>
-                        </tr>
+                </tr>
                 `               
             )
             
         }) 
     }
 })
+// isi dari select Tag 
+$.ajax({
+    url: alamat_tag,
+    method: "GET",
+    dataType: "json",
+    
+    success: function (berhasil) {
+        // console.log(berhasil)
+        $.each(berhasil.data, function (key, value) {
+            $(".isi-tag").append(
+                `
+                <option value="${value.id}">
+                    ${value.nama_tag}
+                </option>        
+                `
+            )
+        }) 
+    }
+}) 
+
+// isi dari select Kategori 
+$.ajax({
+    url: alamat_kategori,
+    method: "GET",
+    dataType: "json",
+    
+    success: function (berhasil) {
+        // console.log(berhasil)
+        $.each(berhasil.data, function (key, value) {
+            $(".isi-kategori").append(
+                `
+                <option value="${value.id}">
+                    ${value.nama_kategori}
+                </option>        
+                `
+            )
+        }) 
+    }
+}) 
 
 
 
 // SIMPAN DATA
-$(".tombol-simpan-artikel").click(function (simpan) {
-    var formData    = new FormData($('#createData')[0]);
-    simpan.preventDefault();
-    // console.log(nama)
-    $.ajax({
-        url: alamat_artikel,
-        type:'POST',
-            data:formData,
-            cache: true,
-            contentType: false,
-            processData: false,
-            async:false,
-            dataType: 'json',
-        success: function (berhasil) {
-            alert(berhasil.message)
-            location.reload();
-        },
-        error: function (gagal) {
-            console.log(gagal)
-        }
-    })
-})
+// $(".tombol-simpan-artikel").click(function (simpan) {
+//     var formData    = new FormData($('#createData')[0]);
+//     simpan.preventDefault();
+//     // console.log(nama)
+//     $.ajax({
+//         url: alamat_artikel,
+//         type:'POST',
+//             data:formData,
+//             cache: true,
+//             contentType: false,
+//             processData: false,
+//             async:false,
+//             dataType: 'json',
+//         success: function (berhasil) {
+//             alert(berhasil.message)
+//             location.reload();
+//         },
+//         error: function (gagal) {
+//             console.log(gagal)
+//         }
+//     })
+// })
 
 // Hapus Data
 $(".table-artikel").on('click', '.hapus-data-artikel', function () {
@@ -262,46 +305,6 @@ $(".table-artikel").on('click', '.hapus-data-artikel', function () {
         }
     })
 })
-
-// isi dari select Tag 
-$.ajax({
-    url: alamat_tag,
-    method: "GET",
-    dataType: "json",
-    
-    success: function (berhasil) {
-        // console.log(berhasil)
-        $.each(berhasil.data, function (key, value) {
-            $(".isi-tag").append(
-                `
-                <option value="${value.id}">
-                                                    ${value.nama_tag}
-                                                </option>        
-                `
-            )
-        }) 
-    }
-}) 
-
-// isi dari select Kategori 
-$.ajax({
-    url: alamat_kategori,
-    method: "GET",
-    dataType: "json",
-    
-    success: function (berhasil) {
-        // console.log(berhasil)
-        $.each(berhasil.data, function (key, value) {
-            $(".isi-kategori").append(
-                `
-                <option value="${value.id}">
-                                                    ${value.nama_kategori}
-                                                </option>        
-                `
-            )
-        }) 
-    }
-}) 
 })
 
 // ----------------------------------------------------------------

@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix'=>'/'],
+Route::group(['prefix'=>'/tampilan'],
 function () {
     route::get('/','FrontendController@index');
     route::get('about','FrontendController@about');
@@ -79,21 +79,19 @@ function () {
         return view('admin.artikel.index');
     });
     Route::post('artikel', 'ArtikelsController@store');
-}
-);
+    }
+    );
+    Route::get('kategori', function () {
+        return view('kategori');
+    });
 
-Route::get('kategori', function () {
-    return view('kategori');
-});
+    Route::get('artikel', function () {
+        return view('artikel');
+    });
 
-Route::get('artikel', function () {
-    
-    return view('artikel');
-});
-
-Route::get('single', function () {
-    return view('single');
-});
+    Route::get('single', function () {
+        return view('single');
+    });
 
 route::resource('/a/kategori','CategoriController');
     route::resource('/a/tag','TagController');
