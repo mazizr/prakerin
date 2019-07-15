@@ -25,7 +25,7 @@
                     
                         {{-- BUTTON TAMBAH --}}
                         
-                            <button class="la la-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
+                            <button class="la la-cloud-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
                         
                     
                 
