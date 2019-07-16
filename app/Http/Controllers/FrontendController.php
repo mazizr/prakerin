@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\Artikel;
 use Auth;
 
 class FrontendController extends Controller
@@ -15,7 +16,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $artikel = Artikel::with('kategori','tag','user')->get();
+        return view('frontend.index', compact('artikel'));
         // , compact('artikel')
     }
 
