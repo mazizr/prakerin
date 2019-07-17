@@ -40,7 +40,7 @@
                                     <p>{{ $no++ }}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="/index/blog/{{$data->slug}}">{{ $data->judul }}</a>
+                                    <a href="/blog/{{$data->slug}}">{{ $data->judul }}</a>
                                 </div>
                             </div>
                             @endforeach
@@ -72,7 +72,7 @@
                             <!-- Kategori Semua -->
                             <div class="sidebar-widget-area">
                                     <h5 class="title">Kategori</h5>
-                                    <div class="widget-content" id="kategori">
+                                    <div class="widget-content kategori">
                                         
                                     </div>
                             </div>
@@ -80,7 +80,7 @@
                             <!-- Semua Tag -->
                             <div class="sidebar-widget-area">
                                     <h5 class="title">Tag</h5>
-                                    <div class="widget-content" id="tag">
+                                    <div class="widget-content tag">
                                         
                                     </div>
                             </div>

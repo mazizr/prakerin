@@ -18,14 +18,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Data Tables Kategori</h5><br>
+                <h5 class="zmdi zmdi-collection-text card-header">    Data Tables Kategori</h5><br>
 
                 {{-- MODALNYA TAMBAH --}}
                 
                     
                         {{-- BUTTON TAMBAH --}}
                         
-                            <button class="la la-cloud-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
+                            <button class="la la-save btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
                         
                     
                 
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     {{-- BUTTON SAVE --}}
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="zmdi zmdi-mail-send btn btn-primary">  Simpan Data</button>
                                 </div>
                             </form> 
                         </div>
@@ -87,6 +87,17 @@
                         <tbody class="table-artikel">
                             
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Judul</th>
+                                <th>Slug</th>
+                                <th>Kategori</th>
+                                <th>Tag</th>
+                                <th>Penulis</th>
+                                <th>Foto</th>
+                                <th style="text-align: center;">Aksi</th>
+                            </tr>
+                        </tfoot>
                     </table>
 
                     <br>           

@@ -11,7 +11,7 @@
 						
 					</li>
 					<li class="nav-item nav-text">
-						<a href="{{url('/kategori')}}" >
+						<a href="{{url('/admin/kategori')}}" >
 							<span>
 								Kategori
 							</span>
@@ -19,7 +19,7 @@
 						
 					</li>
 					<li class="nav-item nav-text">
-						<a href="{{url('/tag')}}" >
+						<a href="{{url('/admin/tag')}}" >
 							<span>
 								Tag
 							</span>
@@ -27,7 +27,7 @@
 						
 					</li>
 					<li class="nav-item nav-text">
-						<a href="{{url('/artikel')}}" >
+						<a href="{{url('/admin/artikel')}}" >
 							<span>
 								Artikel
 							</span>

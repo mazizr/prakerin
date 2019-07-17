@@ -1,5 +1,5 @@
 @extends('layouts.backend')
 
 @section('content')
-{{ Auth::user()->name }}
+    Username : {{ Auth::user()->name }}
 @endsection

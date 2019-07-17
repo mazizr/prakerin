@@ -32,16 +32,16 @@
     <!-- End footer Area -->	
 
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
-<script src="{{ ('assets/frontend/js/jquery/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ ('assets/frontend/js/json.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/jquery/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/json.js') }}"></script>
 <!-- Popper js -->
-<script src="{{ ('assets/frontend/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/popper.min.js') }}"></script>
 <!-- Bootstrap js -->
-<script src="{{ ('assets/frontend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 <!-- Plugins js -->
-<script src="{{ ('assets/frontend/js/plugins.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/plugins.js') }}"></script>
 <!-- Active js -->
-<script src="{{ ('assets/frontend/js/active.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/active.js') }}"></script>
 <!-- JS nya Index -->
 <script src="{{ asset('js/frontend.js') }}"></script>
 @yield('js')

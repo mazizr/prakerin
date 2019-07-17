@@ -22,6 +22,22 @@ class FrontendController extends Controller
         return view('frontend.index', compact('artikel'));
     }
 
+    public function blogtag(Tag $tag)
+    {
+        $artikel = $tag->Artikel()->latest()->paginate(5);
+        $kategori = Kategori::all();
+        $tag = Tag::all();
+        return view('frontend.blog', compact('artikel','kategori'));
+    }
+
+    public function blogkategori(Kategori $kategori)
+    {
+        $artikel = $kategori->Artikel()->latest()->paginate(5);
+        $kategori = Kategori::all();
+        $tag = Tag::all();
+        return view('frontend.blog', compact('artikel','kategori'));
+    }
+
     public function about()
     {
         // $artikel = Artikel::orderBy('created_at','desc')->paginate(3);

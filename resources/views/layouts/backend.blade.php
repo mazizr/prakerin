@@ -143,7 +143,7 @@
 	<!-- START APP WRAPPER -->
 	<div id="app">
 		<!-- START MENU SIDEBAR WRAPPER -->
-		
+		@include('layouts.backend.sidebar')
 		<!-- END MENU SIDEBAR WRAPPER -->
 		<div class="content-wrapper">
 			<!-- START LOGO WRAPPER -->

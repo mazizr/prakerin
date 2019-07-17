@@ -4,9 +4,9 @@ $(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     })
-    var alamat_kategori = 'api/kategori'
-    var alamat_tag = 'api/tag'
-    var alamat_artikel = 'api/artikel'
+    var alamat_kategori = '/api/admin/kategori'
+    var alamat_tag = '/api/admin/tag'
+    var alamat_artikel = '/api/admin/artikel'
 
     // kategori
     // Get Data Siswa
@@ -98,13 +98,17 @@ $.ajax({
                             <td>${value.slug}</td>
                             <td>
                             
-                            <button class="btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">Hapus</button></td>
+                            <button class="zmdi zmdi-delete btn btn-danger btn-sm hapus-data-tag" data-id="${value.id}">  Hapus</button></td>
                 </tr>
                 `
             )
         })
     }
 })
+
+// button edit 
+// <a href="/admin/tag/edit"> <button class="zmdi zmdi-edit btn btn-warning btn-sm hapus-data-tag" data-id="${value.id}">  Edit</button>
+//         </a>
 
 {/* <button class="btn btn-warning btn-sm edit" onclick="document.getElementById('id02').style.display='block'" 
                             id="edit" data-id="${value.id}"
@@ -209,9 +213,9 @@ $.ajax({
                             <td>${value.tag[0].nama_tag}</td>
                             <td>${value.user.name}</td>
                             <td><img src="../assets/img/artikel/${value.foto}"
-                            style="width:250px; height:250px;" alt="Foto"></td>
+                            style="width:400px; height:50px;" alt="Foto"></td>
                             <td>
-                            <button class="btn btn-danger btn-sm hapus-data-artikel" data-id="${value.id}">Hapus</button></td>
+                            <button class="zmdi zmdi-delete btn btn-danger btn-sm hapus-data-artikel" data-id="${value.id}">  Hapus</button></td>
                 </tr>
                 `               
             )

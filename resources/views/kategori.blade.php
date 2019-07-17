@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Data Tables Kategori</h5><br>
+                <h5 class="zmdi zmdi-bookmark card-header">   Data Tables Kategori</h5><br>
                 {{-- // MODAL TAMBAH DATA --}}
-                <button class="la la-cloud-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
+                <button class="la la-save btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
 <div id="id01" class="modal">
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
@@ -17,7 +17,7 @@
     <div class="container">
             <label>Nama Kategori</label>
             <input class="form-control" type="text" name="nama_kategori" id="">
-            <button type="submit" class="btn btn-outline-info tombol-simpan">
+            <button type="submit" class="zmdi zmdi-mail-send btn btn-outline-info tombol-simpan">
                     Simpan Data
                 </button>
     </div>
@@ -36,6 +36,13 @@
                         <tbody class="table-kategori">
                             
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Nama Kategori</th>
+                                <th>Slug</th>
+                                <th style="text-align: center;">Aksi</th>
+                            </tr>
+                        </tfoot>
                     </table>
 
                     <br>
