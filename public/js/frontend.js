@@ -30,7 +30,7 @@ $(function () {
                             
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="/blog/${value.slug}" class="headline">
+                                <a href="/index/blog/${value.slug}" class="headline">
                                     <h5>${value.judul}</h5>
                                 </a>
                                 <!-- Post Meta -->

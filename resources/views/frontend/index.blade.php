@@ -40,7 +40,7 @@
                                     <p>{{ $no++ }}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="/blog/{{$data->slug}}">{{ $data->judul }}</a>
+                                    <a href="/index/blog/{{$data->slug}}">{{ $data->judul }}</a>
                                 </div>
                             </div>
                             @endforeach
