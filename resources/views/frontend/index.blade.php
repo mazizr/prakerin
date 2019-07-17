@@ -40,7 +40,7 @@
                                     <p>{{ $no++ }}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="single-blog.html">{{ $data->judul }}</a>
+                                    <a href="/blog/{{$data->slug}}">{{ $data->judul }}</a>
                                 </div>
                             </div>
                             @endforeach
@@ -68,54 +68,21 @@
                         </div>
     
                         <div class="col-12 col-lg-4">
-                            <div class="title">
-                                <h5>Most Popular Videos</h5>
+    
+                            <!-- Kategori Semua -->
+                            <div class="sidebar-widget-area">
+                                    <h5 class="title">Kategori</h5>
+                                    <div class="widget-content" id="kategori">
+                                        
+                                    </div>
                             </div>
     
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="{{ ('assets/frontend/img/blog-img/b7.jpg')}}" alt="">
-                                    <!-- Catagory -->
-                                    <div class="post-cta"><a href="#">travel</a></div>
-                                    <!-- Video Button -->
-                                    <a href="https://www.youtube.com/watch?v=IhnqEwFSJRg" class="video-btn"><i class="fa fa-play"></i></a>
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
-                                    </a>
-                                    <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p>
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                            <!-- Semua Tag -->
+                            <div class="sidebar-widget-area">
+                                    <h5 class="title">Tag</h5>
+                                    <div class="widget-content" id="tag">
+                                        
                                     </div>
-                                </div>
-                            </div>
-    
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.4s">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="{{ ('assets/frontend/img/blog-img/b8.jpg')}}" alt="">
-                                    <!-- Catagory -->
-                                    <div class="post-cta"><a href="#">travel</a></div>
-                                    <!-- Video Button -->
-                                    <a href="https://www.youtube.com/watch?v=IhnqEwFSJRg" class="video-btn"><i class="fa fa-play"></i></a>
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
-                                    </a>
-                                    <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p>
-                                    <!-- Post Meta -->
-                                    <div class="post-meta">
-                                        <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
-                                    </div>
-                                </div>
                             </div>
     
                         </div>
@@ -123,55 +90,11 @@
                 </div>
             </div>
 
-            
-
-            <!-- Load More btn -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="load-more-btn mt-50 text-center">
-                        <a href="#" class="btn world-btn">Load More</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
     @endsection
 
-    @push('scripts')
-<script>
-$(document).ready(function() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
     
-    var alamat_artikel = 'api/artikel'
-
-let no = 1;
-no++;
-
-$.ajax({
-    url: alamat_artikel,
-    method: "GET",
-    dataType: "json",
-    success: function (berhasil) {
-        // console.log(berhasil)
-        $.each(berhasil.data, function (key, value) {
-            
-            
-            $(".judulnya").append(
-                `
-                ${value.judul}
-                `
-            )
-        })
-    }
-})
-
-});
-</script>
-@endpush
 
   

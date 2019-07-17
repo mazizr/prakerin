@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Artikel;
+use App\Tag;
+use App\Kategori;
 use Auth;
 
 class FrontendController extends Controller
@@ -18,7 +20,6 @@ class FrontendController extends Controller
     {
         $artikel = Artikel::with('kategori','tag','user')->get();
         return view('frontend.index', compact('artikel'));
-        // , compact('artikel')
     }
 
     public function about()
@@ -35,9 +36,11 @@ class FrontendController extends Controller
     {
         return view('frontend.blog');
     }
-    public function single_blog()
+    public function singleblog(Artikel $artikel)
     {
-        return view('frontend.single_blog');
+        $kategori = Kategori::all();
+        $tag = Tag::all();
+        return view('frontend.single-blog', compact('artikel','kategori','tag'));
     }
     /**
      * Show the form for creating a new resource.

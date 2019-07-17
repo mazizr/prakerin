@@ -17,28 +17,33 @@ $(function () {
             // console.log(berhasil)
             $.each(berhasil.data, function (key, value) {
                 
-                $("#isinya").append(
+                $("#bagian-konten").append(
                     `
-                            
-
-                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumbnail">
-                                <img src="../assets/img/artikel/${value.foto}" width="130" height="80" alt="">
-                                <div class="post-cta"><a href="#">${value.kategori.nama_kategori}</a></div>
-                            </div>
-                            
-                            <!-- Post Content -->
-                            <div class="post-content">
-                                <a href="/blog/${value.slug}" class="headline">
-                                    <h5>${value.judul}</h5>
-                                </a>
-                                <!-- Post Meta -->
-                                <div class="post-meta">
-                                    <p><a href="#" class="post-author">${value.user.name}</a> on <a href="#" class="post-date">${value.created_at}</a></p>
-                                </div>
+                    <div class="col-12 col-lg-8">
+                    <div class="single-blog-content mb-100">
+                        <!-- Post Meta -->
+                        <div class="post-meta">
+                            <p><a href="#" class="post-author">${value.user.name}</a> on <a href="#" class="post-date">${value.created_at}</a></p>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <h6>
+                                ${value.konten}
+                            </h6>
+                            <!-- Post Tags -->
+                            <ul class="post-tags">
+                                <li><a href="#">Manual</a></li>
+                                <li><a href="#">Liberty</a></li>
+                                <li><a href="#">Recommendations</a></li>
+                                <li><a href="#">Interpritation</a></li>
+                            </ul>
+                            <!-- Post Meta -->
+                            <div class="post-meta second-part">
+                                <p><a href="#" class="post-author">${value.user.name}</a> on <a href="#" class="post-date">${value.created_at}</a></p>
                             </div>
                         </div>
+                    </div>
+                </div>
                     `               
                 )
                 
@@ -55,7 +60,7 @@ $(function () {
             // console.log(berhasil)
             $.each(berhasil.data, function (key, value) {
                 
-                $("#kategori").append(
+                $("#inikategori").append(
                     `
                      <ul>
                         <li>
@@ -78,11 +83,11 @@ $(function () {
             // console.log(berhasil)
             $.each(berhasil.data, function (key, value) {
                 
-                $("#tag").append(
+                $("#initag").append(
                     `
                      <ul>
                         <li>
-                        <div class="post-cta"><a href="/tampilan/blog-tag/${value.slug}"">${value.nama_tag}</a></div>
+                        <div class="post-cta"><a href="/tampilan/blog-tag/${value.slug}""># ${value.nama_tag}</a></div>
                         <hr>
                         </li>
                      </ul>
@@ -91,6 +96,4 @@ $(function () {
             }) 
         }
     })
-    
-
 })

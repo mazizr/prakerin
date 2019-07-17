@@ -44,6 +44,8 @@
 <script src="{{ ('assets/frontend/js/active.js') }}"></script>
 <!-- JS nya Index -->
 <script src="{{ asset('js/frontend.js') }}"></script>
+
+<script src="{{ asset('js/single-blog.js') }}"></script>
 @yield('js')
 
 </body>

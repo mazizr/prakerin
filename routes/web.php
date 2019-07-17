@@ -18,16 +18,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix'=>'/tampilan'],
+Route::group(['prefix'=>'/'],
 function () {
     route::get('/','FrontendController@index');
     route::get('about','FrontendController@about');
     route::get('blog','FrontendController@blog');
-    route::get('single-blog','FrontendController@single_blog');
+    route::get('blog/{artikel}','FrontendController@singleblog');
     route::get('contact','FrontendController@contact');
     route::get('services','FrontendController@services');
-    // route::get('blog/{artikel}','FrontendController@singleblog');
-    // route::get('blog-tag/{tag}','FrontendController@blogtag');
+    route::get('blog-tag/{tag}','FrontendController@blogtag');
     // route::get('blog-kategori/{kategori}','FrontendController@blogkategori');
     
 }
@@ -53,14 +52,14 @@ function () {
 // }
 // );
 
-Route::group(['prefix'=>'/','middleware'=>['auth']],
+Route::group(['prefix'=>'/admin','middleware'=>['auth']],
 function () {
     Route::get('/', function () {
         return view('backend.index');
     });
     
     Route::get('kategori', function () {
-        return view('admin.kategori.index');
+        return view('kategori');
     });
     
     Route::get('tag', function () {
@@ -81,9 +80,8 @@ function () {
     Route::post('artikel', 'ArtikelsController@store');
     }
     );
-    Route::get('kategori', function () {
-        return view('kategori');
-    });
+
+    
 
     Route::get('artikel', function () {
         return view('artikel');

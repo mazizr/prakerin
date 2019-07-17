@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header">Data Tables Tag</h5><br>
-                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
+                <button class="la la-cloud-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
                 <div class="card-body">
                     <table id="bs4-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>

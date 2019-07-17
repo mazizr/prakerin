@@ -7,7 +7,7 @@
             <div class="card">
                 <h5 class="card-header">Data Tables Kategori</h5><br>
                 {{-- // MODAL TAMBAH DATA --}}
-                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Tambah</button>
+                <button class="la la-cloud-upload btn btn-success" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">  Tambah</button>
 <div id="id01" class="modal">
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
