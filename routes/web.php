@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix'=>'/'],
+Route::group(['prefix'=>'/index'],
 function () {
     route::get('/','FrontendController@index');
     route::get('about','FrontendController@about');
@@ -52,7 +52,7 @@ function () {
 // }
 // );
 
-Route::group(['prefix'=>'/admin','middleware'=>['auth']],
+Route::group(['prefix'=>'/','middleware'=>['auth']],
 function () {
     Route::get('/', function () {
         return view('backend.index');
