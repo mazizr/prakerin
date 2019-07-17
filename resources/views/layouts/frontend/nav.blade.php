@@ -5,7 +5,7 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="index.html"><b class="napbarteks">YURIZA</b></a>
+                    <a class="navbar-brand" href="/index"><b class="napbarteks">YURIZA</b></a>
                     <!-- Navbar Toggler -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <!-- Navbar -->

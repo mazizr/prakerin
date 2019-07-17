@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="/tampilan"><b class="napbarteks">YURIZA</b></a>
+                        <a class="navbar-brand" href="/index"><b class="napbarteks">YURIZA</b></a>
                         <!-- Navbar Toggler -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <!-- Navbar -->
@@ -190,35 +190,15 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
-                        <a href="#"><img src="{{ asset('assets/frontend/img/core-img/logo.png') }}" alt=""></a>
+                        <a href="#"><b class="napbarteks">YURIZA</b></a>
                         <div class="copywrite-text mt-30">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="footer-single-widget">
-                        <ul class="footer-menu d-flex justify-content-between">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Gadgets</a></li>
-                            <li><a href="#">Video</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="footer-single-widget">
-                        <h5>Subscribe</h5>
-                        <form action="#" method="post">
-                            <input type="email" name="email" id="eemail" placeholder="Enter your mail">
-                            <button type="button"><i class="fa fa-arrow-right"></i></button>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </footer>
@@ -234,12 +214,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{ asset('assets/frontend/js/plugins.js') }}"></script>
     <!-- Active js -->
     <script src="{{ asset('assets/frontend/js/active.js') }}"></script>
-    <!-- JS nya Index -->
-    <script src="{{ asset('js/frontend.js') }}"></script>
 
     <script src="{{ asset('js/single-blog.js') }}"></script>
 
     <script id="dsq-count-scr" src="//yuriza.disqus.com/count.js" async></script>
+    
 
 </body>
 
