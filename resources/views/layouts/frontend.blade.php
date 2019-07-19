@@ -13,7 +13,7 @@
     <title>Yuriza - Website Artikel</title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="{{ asset('assets/img/yuriza.ico') }}">
+    <link rel="icon" href="{{ asset('assets/img/artikel/yuriza.ico') }}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/style.css')}}">

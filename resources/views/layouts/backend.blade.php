@@ -33,7 +33,7 @@
 	<!-- ======================= THEME COLOR STYLES ===========================-->
 	<link rel="stylesheet" href="{{asset('assets/backend/assets/css/layouts/vertical/themes/theme-a.css')}}">
 	<!-- Favicon  -->
-    <link rel="icon" href="{{ asset('assets/img/yuriza.ico') }}">
+    <link rel="icon" href="{{ asset('assets/img/artikel/yuriza.ico') }}">
 	<style>
 		/* Full-width input fields */
 		input[type=text], input[type=password] {
