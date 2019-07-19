@@ -32,6 +32,8 @@
 		<link rel="stylesheet" href="{{asset('assets/backend/assets/css/layouts/vertical/menu-type/default.css')}}">
 	<!-- ======================= THEME COLOR STYLES ===========================-->
 	<link rel="stylesheet" href="{{asset('assets/backend/assets/css/layouts/vertical/themes/theme-a.css')}}">
+	<!-- Favicon  -->
+    <link rel="icon" href="{{ asset('assets/img/yuriza.ico') }}">
 	<style>
 		/* Full-width input fields */
 		input[type=text], input[type=password] {
@@ -137,7 +139,8 @@
 			}
 		}
 		</style>
-	@yield('css')
+	
+		@yield('css')
 </head>
 <body>
 	<!-- START APP WRAPPER -->
