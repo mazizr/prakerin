@@ -15,7 +15,7 @@
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="single-blog-title text-center">
                     <!-- Catagory -->
-                    <div class="post-cta"><a href="#">{{ $artikel->kategori->nama_kategori }}</a></div>
+                    <div class="post-cta"><a href="/blog-kategori/{{ $artikel->kategori->slug }}"">{{ $artikel->kategori->nama_kategori }}</a></div>
                     <h3>{{ $artikel->judul }}</h3>
                 </div>
             </div>

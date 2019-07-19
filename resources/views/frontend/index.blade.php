@@ -62,7 +62,7 @@
                                 <h5>Latest Articles</h5>
                             </div>
     
-                            <div id="isinya">
+                            <div class="isinya">
     
                             </div>
                         </div>
@@ -71,7 +71,7 @@
     
                             <!-- Kategori Semua -->
                             <div class="sidebar-widget-area">
-                                    <h5 class="title">Kategori</h5>
+                                    <h5 class="title">  Kategori</h5>
                                     <div class="widget-content kategori">
                                         
                                     </div>

@@ -190,9 +190,6 @@
 				<!--START PAGE HEADER -->
 				<header class="page-header">
 					<div class="d-flex align-items-center">
-						<div class="mr-auto">
-							<h1>{{Auth::user()->name}}</h1><br>
-						</div>
 						
 					</div>
 				</header>

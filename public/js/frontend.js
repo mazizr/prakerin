@@ -8,7 +8,7 @@ $(function () {
     var alamat_kategori = '/api/admin/kategori'
     var alamat_tag = '/api/admin/tag'
 
-    $.ajax({
+    $.ajax({ 
         url: alamat_artikel,
         method: "GET",
         dataType: "json",
@@ -17,7 +17,7 @@ $(function () {
             // console.log(berhasil)
             $.each(berhasil.data, function (key, value) {
                 
-                $("#isinya").append(
+                $(".isinya").append(
                     `
                             
 
