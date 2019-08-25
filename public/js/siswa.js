@@ -57,6 +57,30 @@ $(function () {
         })
     })
 
+    // edit
+    $(".tombol-edit").click(function (edit) {
+        edit.preventDefault();
+        var variable_isian_nama = $("input[name=nama_kategori]").val("nama_kategori")
+        // console.log(nama)
+        $.ajax({
+            url: alamat_kategori,
+            method: "POST",
+            dataType: "json",
+            data: {
+                nama_kategori: variable_isian_nama
+            },
+            success: function (berhasil) {
+                alert(berhasil.message)
+                location.reload();
+            },
+            error: function (gagal) {
+                console.log(gagal)
+            }
+        })
+    })
+    // end edit
+
+
     // Hapus Data
     $(".table-kategori").on('click', '.hapus-data', function () {
         var id = $(this).data("id");

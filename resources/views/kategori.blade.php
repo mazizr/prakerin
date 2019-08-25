@@ -30,7 +30,7 @@
                             <tr>
                                 <th>Nama Kategori</th>
                                 <th>Slug</th>
-                                <th style="text-align: center;">Aksi</th>
+                                <th style="text-align: center;" colspan="2">Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="table-kategori">
@@ -51,5 +51,7 @@
         </div>
     </div>
 </section>
-
 @endsection
+
+
+

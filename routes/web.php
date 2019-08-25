@@ -21,7 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'/'],
 function () {
     route::get('/','FrontendController@index');
-    route::get('about','FrontendController@about');
     route::get('blog','FrontendController@blog');
     route::get('blog/{artikel}','FrontendController@singleblog');
     route::get('contact','FrontendController@contact');
@@ -35,7 +34,7 @@ function () {
 Route::group(['prefix'=>'admin','middleware'=>['auth']],
 function () {
     Route::get('/', function () {
-        return view('backend.index');
+        return view('kategori');
     });
     
     Route::get('kategori', function () {
